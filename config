@@ -61,18 +61,14 @@ font-1 = "FontAwesome:size=22;5"
 font-2 = "Hack Nerd Font:size=10;2"
 font-3 = "Hack Nerd Font:size=22;5"
 
+tray-position = right
+tray-padding = 0
+tray-detached = false
+tray-maxsize = 15
+
 modules-left = i3 xwindow
 modules-center =
-modules-right = pulseaudio memory cpu battery shortdate vpn
-
-tray-detached = false
-tray-offset-x = 0
-tray-offset-y = 0
-tray-padding = 2
-tray-maxsize = 20
-tray-scale = 1.0
-tray-position = none
-tray-background = ${colors.background}
+modules-right = pulseaudio memory cpu battery shortdate
 
 ;wm-restack = i3
 
@@ -89,26 +85,12 @@ modules-right = pulseaudio date
 
 tray-position = none
 
-[module/vpn]
-type = custom/script
-exec = ~/.config/polybar/vpn.sh
-click-left = ~/.config/polybar/vpn.sh
-format = <label>
-format-foreground = ${colors.foreground}
-format-background = ${colors.darkpurple}
-format-prefix-foreground = ${colors.darkpurple}
-format-prefix-background = ${colors.green}
-format-padding = 0
-format-prefix = "  "
-label = %{T3} VPN %{T-}
-label-font = 3
-
 [module/xwindow]
 type = internal/xwindow
 label = %title%
 label-maxlen = 50
 
-format-foreground = ${colors.foreground}
+format-foreground = ${colors.cyan}
 format-background = ${colors.background}
 
 [module/i3]
@@ -188,13 +170,13 @@ label-muted = 🔇 muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = ${colors.green}
+bar-volume-foreground-1 = ${colors.green}
+bar-volume-foreground-2 = ${colors.green}
+bar-volume-foreground-3 = ${colors.green}
+bar-volume-foreground-4 = ${colors.green}
+bar-volume-foreground-5 = ${colors.cyan}
+bar-volume-foreground-6 = ${colors.red}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -214,55 +196,29 @@ format-charging = <animation-charging> <label-charging>
 
 format-discharging = <animation-discharging> <label-discharging>
 
-format-full-prefix = " "
+format-full-prefix = "  "
 format-full-prefix-foreground = ${colors.purple}
+format-full-prefix-background = ${colors.darkpurple}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.purple}
+ramp-capacity-background = ${colors.darkpurple}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-foreground = ${colors.purple}
+animation-charging-background = ${colors.darkpurple}
 animation-charging-framerate = 750
 
 animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-foreground = ${colors.purple}
+animation-discharging-background = ${colors.darkpurple}
 animation-discharging-framerate = 750
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.foreground}
-label-close =  cancel
-label-close-foreground = ${colors.cyan}
-label-separator = |
-label-separator-foreground = ${colors.purple}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
 
 ################################################################################
 
