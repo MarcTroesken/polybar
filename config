@@ -162,12 +162,21 @@ time-alt = %H:%M:%S
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+format-volume = <label-volume>
+label-volume = %{T3} %percentage%% %{T-}
 label-volume-foreground = ${root.foreground}
+label-volume-background = ${root.darkpurple}
+format-volume-foreground = ${colors.foreground}
+format-volume-background = ${colors.darkpurple}
+format-volume-prefix = "  "
+format-volume-prefix-foreground = ${colors.darkpurple}
+format-volume-prefix-background = ${colors.green}
+format-padding = 0
 
-label-muted = 🔇 muted
-label-muted-foreground = #666
+label-font = 3
+label-muted = "  "
+label-muted-foreground = ${colors.foreground}
+label-muted-background = ${colors.red}
 
 bar-volume-width = 10
 bar-volume-foreground-0 = ${colors.green}
@@ -192,33 +201,26 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
+format-charging = <label-charging>
+label-charging = %{T3} %percentage%% %{T-}
+format-charging-foreground = ${colors.foreground}
+format-charging-background = ${colors.darkpurple}
+format-charging-prefix = "  "
+format-charging-prefix-foreground = ${colors.darkpurple}
+format-charging-prefix-background = ${colors.green}
 
-format-discharging = <animation-discharging> <label-discharging>
 
-format-full-prefix = "  "
+format-discharging = <label-discharging>
+label-discharging = %{T3} %percentage%% %{T-}
+format-discharging-foreground = ${colors.foreground}
+format-discharging-background = ${colors.darkpurple}
+format-discharging-prefix = "  "
+format-discharging-prefix-foreground = ${colors.darkpurple}
+format-discharging-prefix-background = ${colors.orange}
+
+format-full-prefix = "  "
 format-full-prefix-foreground = ${colors.purple}
 format-full-prefix-background = ${colors.darkpurple}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.purple}
-ramp-capacity-background = ${colors.darkpurple}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.purple}
-animation-charging-background = ${colors.darkpurple}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.purple}
-animation-discharging-background = ${colors.darkpurple}
-animation-discharging-framerate = 750
 
 ################################################################################
 
@@ -269,13 +271,13 @@ interval = 1
 label = %{T3} %gb_used% %{T-}
 
 format = <label>
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.darkpurple}
 format-prefix-background = ${colors.pink}
 format-foreground = ${colors.foreground}
 format-background = ${colors.darkpurple}
 
 format-padding = 0 
-format-prefix-padding = 1 
+format-prefix-padding = 0
 
 ################################################################################
